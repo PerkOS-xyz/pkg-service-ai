@@ -107,3 +107,122 @@ export type ReadingLevel = "elementary" | "middle" | "high";
 export type EmailTone = "formal" | "casual" | "friendly";
 export type Difficulty = "easy" | "medium" | "hard";
 export type Voice = "alloy" | "echo" | "fable" | "onyx" | "nova" | "shimmer";
+
+// Provider type
+export type AIProvider = "openrouter" | "openai" | "replicate";
+
+// Result type aliases for backwards compatibility
+export type TranscriptionResult = { text: string; confidence?: number };
+export type EntityExtractionResult = EntityResult;
+export type CodeGenerationResult = CodeGenerateResult;
+
+// Option types for service methods
+export interface ImageAnalysisOptions {
+  detail?: "low" | "high" | "auto";
+  maxTokens?: number;
+}
+
+export interface ImageGenerateOptions {
+  size?: "1024x1024" | "1792x1024" | "1024x1792";
+  quality?: "standard" | "hd";
+  style?: "vivid" | "natural";
+  n?: number;
+}
+
+export interface TranscribeOptions {
+  language?: string;
+  prompt?: string;
+  responseFormat?: "json" | "text" | "srt" | "vtt";
+}
+
+export interface SpeechOptions {
+  voice?: Voice;
+  speed?: number;
+  responseFormat?: "mp3" | "opus" | "aac" | "flac";
+}
+
+export interface SummarizeOptions {
+  length?: SummaryLength;
+  format?: "paragraph" | "bullets";
+}
+
+export interface TranslateOptions {
+  targetLanguage: string;
+  sourceLanguage?: string;
+  preserveFormatting?: boolean;
+}
+
+export interface SentimentOptions {
+  detailed?: boolean;
+  includeEmotions?: boolean;
+}
+
+export interface ModerationOptions {
+  categories?: string[];
+  threshold?: number;
+}
+
+export interface SimplifyOptions {
+  targetLevel?: ReadingLevel;
+  preserveMeaning?: boolean;
+}
+
+export interface EntityOptions {
+  types?: string[];
+  includePositions?: boolean;
+}
+
+export interface EmailOptions {
+  tone?: EmailTone;
+  length?: SummaryLength;
+  includeSubject?: boolean;
+}
+
+export interface ProductDescriptionOptions {
+  tone?: "professional" | "casual" | "luxury";
+  length?: SummaryLength;
+  includeBenefits?: boolean;
+}
+
+export interface SEOOptions {
+  keywords?: string[];
+  targetLength?: number;
+  includeMetaTags?: boolean;
+}
+
+export interface CodeGenerateOptions {
+  language: string;
+  includeComments?: boolean;
+  includeTests?: boolean;
+}
+
+export interface CodeReviewOptions {
+  focus?: "security" | "performance" | "style" | "all";
+  severity?: "all" | "critical" | "high";
+}
+
+export interface SQLQueryOptions {
+  dialect?: "mysql" | "postgresql" | "sqlite";
+  includeExplanation?: boolean;
+}
+
+export interface RegexOptions {
+  flavor?: "javascript" | "python" | "pcre";
+  includeExamples?: boolean;
+}
+
+export interface APIDocsOptions {
+  format?: "markdown" | "openapi";
+  includeExamples?: boolean;
+}
+
+export interface OCROptions {
+  language?: string;
+  format?: "text" | "structured";
+}
+
+export interface QuizOptions {
+  count?: number;
+  difficulty?: Difficulty;
+  includeExplanations?: boolean;
+}
