@@ -1,6 +1,6 @@
 {
   "name": "@perkos/service-ai",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Multi-provider AI service abstraction with OpenRouter, Replicate, and OpenAI support",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
