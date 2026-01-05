@@ -106,7 +106,7 @@ export class AIService {
     return response.choices[0].message.content || "Unable to analyze the image";
   }
 
-  async generateImage(prompt: string, size: "1024x1024" = "1024x1024"): Promise<ImageGenerateResult> {
+  async generateImage(prompt: string, size: "1024x1024" | "1792x1024" | "1024x1792" = "1024x1024"): Promise<ImageGenerateResult> {
     try {
       const response = await this.openai.images.generate({
         model: this.imageModel,
@@ -123,7 +123,7 @@ export class AIService {
     }
   }
 
-  private async generateImageWithReplicate(prompt: string, size: "1024x1024" = "1024x1024"): Promise<ImageGenerateResult> {
+  private async generateImageWithReplicate(prompt: string, size: "1024x1024" | "1792x1024" | "1024x1792" = "1024x1024"): Promise<ImageGenerateResult> {
     if (!this.replicate) throw new Error("Replicate client not initialized");
 
     const [width, height] = size.split("x").map(Number);
